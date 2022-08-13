@@ -1,0 +1,23 @@
+syntax="proto3";
+package crud_proto;
+option go_package=".;crud_proto";
+
+service CarInfo{
+    rpc GetCarInfo(Id) returns (Car){}
+    rpc UpdateInfo(CarComplete) returns (Car){}
+    rpc DeleteInfo(Id) returns (Car){}
+    rpc CreateInfo(Car) returns (Car){}
+} 
+
+message Car{
+    string Model=1;
+    string Make=2;
+    string Year=3;
+}
+message Id{
+    int32 Carid=1;
+}
+message CarComplete{
+    Id Queryid=1;
+    Car Querycar=2;
+}
