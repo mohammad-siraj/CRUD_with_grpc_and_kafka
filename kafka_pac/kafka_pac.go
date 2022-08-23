@@ -47,7 +47,7 @@ func produce_check(p *kafka.Producer) {
 	}
 }
 
-func (p producer) ProducerPub(car entities.Car, topicname string) {
+func (p *producer) ProducerPub(car entities.Car, topicname string) {
 	me, _ := json.Marshal(car)
 	topic := topicname
 	data := []byte(string(me))
